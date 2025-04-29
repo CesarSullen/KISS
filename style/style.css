@@ -377,14 +377,15 @@ section h2 {
 
 .header-content {
   padding: 1rem;
-  max-width: 1000px;
   margin: auto;
   width: 100%;
   height: 100%;
   display: flex;
   flex-direction: column;
+  display: flex;
   justify-content: center;
-  gap: 10px;
+  align-items: center;
+  gap: 1.5rem;
   text-align: center;
 }
 
@@ -405,16 +406,11 @@ section h2 {
   transform: translateY(300vh);
   font-size: 2rem;
 }
-@media screen and (min-width: 768px) {
-  .header-subtitle {
-    text-align: left;
-  }
-}
 
 .cta-section {
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 0.5rem;
   width: 100%;
   margin-top: 3rem;
 }
@@ -433,6 +429,10 @@ section h2 {
   .cta-section {
     flex-direction: row;
     margin-top: 0;
+    gap: 1.2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 }
 
@@ -478,6 +478,9 @@ section h2 {
 .services-container .service:hover .service-image {
   scale: 1.5;
 }
+.services-container .service .card-content {
+  padding: 0.5rem;
+}
 .services-container .service h3 {
   font-size: 1.5rem;
   color: #19150f;
@@ -502,9 +505,7 @@ section h2 {
 .products .products-carousel {
   display: flex;
   overflow-x: auto;
-  gap: 20px;
-  padding: 10px 0;
-  scroll-snap-type: x mandatory;
+  gap: 10px;
   -webkit-overflow-scrolling: touch;
   scroll-behavior: smooth;
   width: 100%;
@@ -514,12 +515,22 @@ section h2 {
   display: none;
 }
 .products .products-carousel .product-card {
-  flex: 0 0 250px;
+  display: flex;
+  flex-direction: column;
   scroll-snap-align: start;
   border-radius: 8px;
-  box-shadow: 0 3px 15px rgba(25, 21, 15, 0.2);
+  box-shadow: none;
   min-width: 250px;
   max-width: 250px;
+}
+.products .products-carousel .product-card:first-child {
+  margin-left: 1rem;
+}
+.products .products-carousel .product-card:last-child {
+  margin-right: 1rem;
+}
+.products .products-carousel .product-card:hover {
+  transform: none;
 }
 .products .products-carousel .product-card .product-image {
   width: 100%;
@@ -528,7 +539,6 @@ section h2 {
 }
 .products .products-carousel .product-card .card-content {
   text-align: center;
-  padding: 1rem;
 }
 .products .products-carousel .product-card .card-content h3 {
   font-size: 1.3rem;
@@ -546,12 +556,20 @@ section h2 {
 }
 @media screen and (min-width: 768px) {
   .products .products-carousel {
-    gap: 30px;
+    gap: 15px;
   }
-  .products .products-carousel .product-card {
-    flex: 0 0 300px;
-    min-width: 300px;
-    max-width: 300px;
+  .products .products-carousel::-webkit-scrollbar {
+    display: block;
+    height: 8px;
+  }
+  .products .products-carousel::-webkit-scrollbar-track {
+    margin-inline: 1rem;
+    background: rgba(25, 21, 15, 0.1);
+    border-radius: 4px;
+  }
+  .products .products-carousel::-webkit-scrollbar-thumb {
+    background: #19150f;
+    border-radius: 4px;
   }
 }
 
