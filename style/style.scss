@@ -75,7 +75,6 @@
 	color: $primary-color;
 	text-transform: uppercase;
 	font-size: 2.5rem;
-	margin-top: 2rem;
 
 	&::after {
 		content: url(../assets/styled-underline.png);
@@ -118,7 +117,7 @@
 		}
 
 		.card-content {
-			padding: 0.5rem;
+			padding: 1rem;
 		}
 		h3 {
 			font-size: 1.5rem;
@@ -149,58 +148,128 @@
 	.products-carousel {
 		display: flex;
 		overflow-x: auto;
-		gap: 10px;
+		gap: 1.5rem;
 		// scroll-snap-type: x mandatory;
-		-webkit-overflow-scrolling: touch;
 		scroll-behavior: smooth;
 		width: 100%;
-		box-sizing: border-box;
+		padding: 1rem;
 
 		&::-webkit-scrollbar {
 			display: none;
 		}
-		.product-card {
-			display: flex;
-			flex-direction: column;
-			scroll-snap-align: start;
-			border-radius: $border-radius-general;
-			box-shadow: none;
+
+		.carousel-card {
+			position: relative;
+			width: 100%;
 			min-width: 250px;
 			max-width: 250px;
-			&:first-child {
-				margin-left: 1rem;
-			}
-			&:last-child {
-				margin-right: 1rem;
-			}
+			aspect-ratio: 3/4;
+			background-size: cover;
+			background-position: center;
+			background-repeat: no-repeat;
+			border-radius: $border-radius-rounded;
+			overflow: hidden;
+			box-shadow: 0 4px 15px rgba($primary-color, 0.2);
+			text-decoration: none;
+			border: solid 1px $primary-color;
+			scroll-snap-align: start;
+
 			&:hover {
-				transform: none;
-			}
-			.product-image {
-				width: 100%;
-				height: 200px;
-				object-fit: cover;
+				transform: scale(1.02);
 			}
 
-			.card-content {
-				text-align: center;
+			&:first-child {
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+				background: linear-gradient(
+					45deg,
+					rgba($primary-color, 0.8),
+					rgba($secondary-color, 0.6)
+				);
+				border: 1px solid rgba($primary-color, 0.2);
+				box-shadow: 0 6px 20px rgba($primary-color, 0.15);
+				animation: pulse 3s infinite ease-in-out;
 
-				h3 {
-					font-size: 1.3rem;
-					color: $primary-color;
+				.carousel-title {
+					font-size: 1.2rem;
+					color: #fff;
 					text-transform: uppercase;
+					padding: 0.5rem;
+					margin-bottom: 1rem;
+					text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
 				}
 
-				p {
-					font-size: 1.1rem;
-					color: $text-color;
-					margin: 0.5rem 0;
+				&::after {
+					content: "➜";
+					font-size: 2rem;
+					color: #fff;
+					margin-top: 0.5rem;
+					transition: transform 0.3s ease;
 				}
 
-				.btn {
-					width: 100%;
-					min-width: unset;
+				&:hover::after {
+					transform: translateX(10px);
 				}
+			}
+		}
+
+		.carousel-info {
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			background: rgba(255, 255, 255, 0.9);
+			border-radius: 8px;
+			padding: 0.75rem;
+			margin: 0.75rem;
+		}
+
+		.carousel-action {
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			padding: 0.75rem;
+		}
+
+		.carousel-title {
+			font-size: 0.9rem;
+			text-transform: uppercase;
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			text-align: left;
+		}
+
+		.carousel-price {
+			font-size: 0.9rem;
+			color: $text-color;
+			font-weight: 500;
+			margin-left: 0.5rem;
+		}
+
+		.carousel-btn {
+			background: $primary-color;
+			color: white;
+			border-radius: $border-radius-rounded;
+			padding: 0.5rem 1rem;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			font-weight: 500;
+			cursor: pointer;
+			box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+			border: none;
+			width: 100%;
+			text-transform: uppercase;
+
+			&:hover {
+				opacity: 0.8;
 			}
 		}
 	}

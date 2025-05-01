@@ -199,6 +199,17 @@ section h2 {
     filter: blur(8px);
   }
 }
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.02);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
 .nav {
   position: sticky;
   top: 0;
@@ -440,7 +451,6 @@ section h2 {
   color: #19150f;
   text-transform: uppercase;
   font-size: 2.5rem;
-  margin-top: 2rem;
 }
 .section-title::after {
   content: url(../assets/styled-underline.png);
@@ -479,7 +489,7 @@ section h2 {
   scale: 1.5;
 }
 .services-container .service .card-content {
-  padding: 0.5rem;
+  padding: 1rem;
 }
 .services-container .service h3 {
   font-size: 1.5rem;
@@ -505,54 +515,112 @@ section h2 {
 .products .products-carousel {
   display: flex;
   overflow-x: auto;
-  gap: 10px;
-  -webkit-overflow-scrolling: touch;
+  gap: 1.5rem;
   scroll-behavior: smooth;
   width: 100%;
-  box-sizing: border-box;
+  padding: 1rem;
 }
 .products .products-carousel::-webkit-scrollbar {
   display: none;
 }
-.products .products-carousel .product-card {
-  display: flex;
-  flex-direction: column;
-  scroll-snap-align: start;
-  border-radius: 8px;
-  box-shadow: none;
+.products .products-carousel .carousel-card {
+  position: relative;
+  width: 100%;
   min-width: 250px;
   max-width: 250px;
+  aspect-ratio: 3/4;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(25, 21, 15, 0.2);
+  text-decoration: none;
+  border: solid 1px #19150f;
+  scroll-snap-align: start;
 }
-.products .products-carousel .product-card:first-child {
-  margin-left: 1rem;
+.products .products-carousel .carousel-card:hover {
+  transform: scale(1.02);
 }
-.products .products-carousel .product-card:last-child {
-  margin-right: 1rem;
+.products .products-carousel .carousel-card:first-child {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(45deg, rgba(25, 21, 15, 0.8), rgba(200, 197, 186, 0.6));
+  border: 1px solid rgba(25, 21, 15, 0.2);
+  box-shadow: 0 6px 20px rgba(25, 21, 15, 0.15);
+  animation: pulse 3s infinite ease-in-out;
 }
-.products .products-carousel .product-card:hover {
-  transform: none;
+.products .products-carousel .carousel-card:first-child .carousel-title {
+  font-size: 1.2rem;
+  color: #fff;
+  text-transform: uppercase;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
 }
-.products .products-carousel .product-card .product-image {
+.products .products-carousel .carousel-card:first-child::after {
+  content: "➜";
+  font-size: 2rem;
+  color: #fff;
+  margin-top: 0.5rem;
+  transition: transform 0.3s ease;
+}
+.products .products-carousel .carousel-card:first-child:hover::after {
+  transform: translateX(10px);
+}
+.products .products-carousel .carousel-info {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 8px;
+  padding: 0.75rem;
+  margin: 0.75rem;
+}
+.products .products-carousel .carousel-action {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 0.75rem;
+}
+.products .products-carousel .carousel-title {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: left;
+}
+.products .products-carousel .carousel-price {
+  font-size: 0.9rem;
+  color: #333;
+  font-weight: 500;
+  margin-left: 0.5rem;
+}
+.products .products-carousel .carousel-btn {
+  background: #19150f;
+  color: white;
+  border-radius: 12px;
+  padding: 0.5rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  border: none;
   width: 100%;
-  height: 200px;
-  object-fit: cover;
-}
-.products .products-carousel .product-card .card-content {
-  text-align: center;
-}
-.products .products-carousel .product-card .card-content h3 {
-  font-size: 1.3rem;
-  color: #19150f;
   text-transform: uppercase;
 }
-.products .products-carousel .product-card .card-content p {
-  font-size: 1.1rem;
-  color: #333;
-  margin: 0.5rem 0;
-}
-.products .products-carousel .product-card .card-content .btn {
-  width: 100%;
-  min-width: unset;
+.products .products-carousel .carousel-btn:hover {
+  opacity: 0.8;
 }
 @media screen and (min-width: 768px) {
   .products .products-carousel {
