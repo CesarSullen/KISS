@@ -534,7 +534,6 @@ section h2 {
   background-repeat: no-repeat;
   border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 4px 15px rgba(25, 21, 15, 0.2);
   text-decoration: none;
   border: solid 1px #19150f;
   scroll-snap-align: start;
@@ -549,7 +548,6 @@ section h2 {
   align-items: center;
   background: linear-gradient(45deg, rgba(25, 21, 15, 0.8), rgba(200, 197, 186, 0.6));
   border: 1px solid rgba(25, 21, 15, 0.2);
-  box-shadow: 0 6px 20px rgba(25, 21, 15, 0.15);
   animation: pulse 3s infinite ease-in-out;
 }
 .products .products-carousel .carousel-card:first-child .carousel-title {

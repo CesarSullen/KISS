@@ -169,7 +169,6 @@
 			background-repeat: no-repeat;
 			border-radius: $border-radius-rounded;
 			overflow: hidden;
-			box-shadow: 0 4px 15px rgba($primary-color, 0.2);
 			text-decoration: none;
 			border: solid 1px $primary-color;
 			scroll-snap-align: start;
@@ -189,7 +188,6 @@
 					rgba($secondary-color, 0.6)
 				);
 				border: 1px solid rgba($primary-color, 0.2);
-				box-shadow: 0 6px 20px rgba($primary-color, 0.15);
 				animation: pulse 3s infinite ease-in-out;
 
 				.carousel-title {
