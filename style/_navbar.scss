@@ -15,41 +15,43 @@
 	display: flex;
 	gap: 10px;
 	align-items: center;
-
 	&:hover {
 		.nav-title {
-			color: white;
+			color: whitesmoke;
 		}
 	}
 }
 
 .nav-icon {
-	width: 40px;
+	width: 100%;
+	max-width: 40px;
 	border-radius: 100vh;
-	@media screen and (min-width: 768px) {
-		width: 50px;
+
+	@media screen and (min-width: 700px) {
+		max-width: 50px;
 	}
 }
 .nav-title {
-	color: $primary-color;
-	font-size: 2rem;
+	color: $text-color;
+	font-size: 1.3rem;
 }
 .nav-links {
 	display: none;
 
-	@media screen and (min-width: 768px) {
+	@media screen and (min-width: 700px) {
 		display: flex;
 		gap: 2rem;
 		letter-spacing: 2px;
 		text-transform: uppercase;
 		align-items: center;
+		font-size: 0.9rem;
 
 		p {
-			color: $primary-color;
+			color: $text-color;
 			position: relative;
 
 			&:hover {
-				color: white;
+				color: whitesmoke;
 			}
 			&::after {
 				content: "";
@@ -58,7 +60,7 @@
 				left: 0;
 				width: 0;
 				height: 2px;
-				background-color: white;
+				background-color: whitesmoke;
 				transition: width 0.3s ease;
 			}
 			&:hover::after {
@@ -69,7 +71,7 @@
 }
 
 .nav-link {
-	@media screen and (min-width: 768px) {
+	@media screen and (min-width: 700px) {
 		padding: 0.5rem 1rem;
 		display: flex;
 		gap: 10px;
@@ -80,7 +82,7 @@
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	position: fixed;
+	position: absolute;
 	top: 0;
 	left: 0;
 	width: 100%;
@@ -88,8 +90,6 @@
 	transform: translateX(-200%);
 	padding: 1rem;
 	background-color: $primary-color;
-	filter: opacity(0.9);
-	backdrop-filter: blur(5px);
 	z-index: -1;
 	gap: 50px;
 }
@@ -107,7 +107,7 @@
 	display: flex;
 	gap: 10px;
 	align-items: center;
-	color: $secondary-color;
+	color: whitesmoke;
 	font-size: 1.5rem;
 	&:hover {
 		color: $primary-color;
@@ -133,28 +133,25 @@
 	padding: 5px;
 	border-radius: 5px;
 
-	@media screen and (min-width: 768px) {
+	@media screen and (min-width: 700px) {
 		display: none;
 	}
 	.bar {
 		height: 2px;
 		width: 100%;
-		background-color: $primary-color;
+		background-color: $text-color;
 		border-radius: 2px;
 		transition: transform 0.4s ease, opacity 0.2s ease;
 	}
 	&.toggled {
 		.bar:first-child {
 			transform: rotate(45deg) translate(5px, 5px);
-			background-color: $secondary-color;
 		}
 		.bar:last-child {
 			transform: rotate(-45deg) translate(5px, -5px);
-			background-color: $secondary-color;
 		}
 		.bar:nth-child(2) {
 			opacity: 0;
-			background-color: $secondary-color;
 		}
 	}
 }

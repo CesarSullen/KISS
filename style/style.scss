@@ -18,7 +18,7 @@
 .header {
 	height: 80vh;
 	background-image: url(../assets/header.jpg);
-	background-color: rgba(0, 0, 0, 0.131);
+	background-color: rgba(0, 0, 0, 0.5);
 	background-blend-mode: multiply;
 	background-size: cover;
 	background-position: center;
@@ -36,9 +36,10 @@
 	text-align: center;
 }
 .header-title {
-	color: $primary-color;
+	color: whitesmoke;
 	font-size: 5rem;
 	line-height: 0.8;
+	opacity: 0;
 
 	@media screen and (min-width: 768px) {
 		text-align: left;
@@ -46,6 +47,8 @@
 }
 .header-subtitle {
 	@include animation-delay(0.3s);
+	color: whitesmoke;
+
 	font-size: 2rem;
 }
 .cta-section {
@@ -68,17 +71,6 @@
 		margin-top: 0;
 		gap: 1.2rem;
 		@include flex-center();
-	}
-}
-
-.section-title {
-	color: $primary-color;
-	text-transform: uppercase;
-	font-size: 2.5rem;
-
-	&::after {
-		content: url(../assets/styled-underline.png);
-		display: block;
 	}
 }
 
@@ -109,7 +101,7 @@
 			box-shadow: 0 5px 25px rgba($primary-color, 0.35);
 
 			h3 {
-				color: $secondary-color;
+				color: $primary-color;
 			}
 			.service-image {
 				scale: 1.5;
@@ -121,7 +113,7 @@
 		}
 		h3 {
 			font-size: 1.5rem;
-			color: $primary-color;
+			color: $text-color;
 			text-transform: uppercase;
 			letter-spacing: 1.5px;
 			text-align: center;
@@ -182,17 +174,12 @@
 				flex-direction: column;
 				justify-content: center;
 				align-items: center;
-				background: linear-gradient(
-					45deg,
-					rgba($primary-color, 0.8),
-					rgba($secondary-color, 0.6)
-				);
-				border: 1px solid rgba($primary-color, 0.2);
+				border: none;
 				animation: pulse 3s infinite ease-in-out;
 
 				.carousel-title {
-					font-size: 1.2rem;
-					color: #fff;
+					font-size: 1.4rem;
+					color: $text-color;
 					text-transform: uppercase;
 					padding: 0.5rem;
 					margin-bottom: 1rem;
@@ -200,10 +187,8 @@
 				}
 
 				&::after {
-					content: "➜";
-					font-size: 2rem;
-					color: #fff;
-					margin-top: 0.5rem;
+					content: url(../assets/caret-circle-double-right.svg);
+					scale: 2;
 					transition: transform 0.3s ease;
 				}
 
@@ -242,6 +227,7 @@
 			overflow: hidden;
 			text-overflow: ellipsis;
 			text-align: left;
+			color: $text-color;
 		}
 
 		.carousel-price {
@@ -278,7 +264,7 @@
 
 			&::-webkit-scrollbar {
 				display: block;
-				height: 8px;
+				height: 15px;
 			}
 			&::-webkit-scrollbar-track {
 				margin-inline: 1rem;
@@ -360,7 +346,7 @@
 
 	h3 {
 		font-size: 1.4rem;
-		color: $primary-color;
+		color: $text-color;
 		text-transform: uppercase;
 		letter-spacing: 1px;
 	}
@@ -392,8 +378,8 @@
 		.location-card,
 		.hours-card {
 			width: 100%;
-			max-width: 500px;
 			box-sizing: border-box;
+			color: $text-color;
 
 			.card-content {
 				text-align: left;
@@ -401,12 +387,12 @@
 
 				h3 {
 					font-size: 1.5rem;
-					color: $primary-color;
 					text-transform: uppercase;
 					margin-bottom: 1rem;
 				}
 
-				p {
+				p,
+				a {
 					font-size: 1rem;
 					color: $text-color;
 					line-height: 1.6;
@@ -417,8 +403,10 @@
 					margin-top: 1rem;
 					width: 100%;
 					max-width: 300px;
-
+					border: solid 2px $primary-color;
+					color: $primary-color;
 					&:hover {
+						background: $primary-color;
 						color: $secondary-color;
 					}
 				}
@@ -428,7 +416,6 @@
 		.hours-card {
 			.hours-list {
 				list-style: none;
-				color: $text-color;
 
 				li {
 					display: flex;
@@ -436,76 +423,8 @@
 					padding: 0.5rem 0;
 					border-bottom: 1px solid rgba($primary-color, 0.1);
 					font-weight: 600;
-					color: $primary-color;
 				}
 			}
-		}
-	}
-}
-
-// Contact Form
-.contact {
-	width: 100%;
-	.contact-container {
-		display: flex;
-		justify-content: center;
-		width: 100%;
-	}
-
-	.contact-form {
-		width: 100%;
-		max-width: 500px;
-		box-sizing: border-box;
-
-		&:hover {
-			transform: none;
-		}
-
-		.form-group {
-			margin-bottom: 1rem;
-			text-align: left;
-
-			label {
-				display: block;
-				color: $primary-color;
-				font-size: 1rem;
-				margin-bottom: 0.5rem;
-				text-transform: uppercase;
-				font-weight: 600;
-			}
-
-			input,
-			textarea {
-				width: 100%;
-				padding: 0.8rem;
-				border-radius: $border-radius-general;
-				border: $border-general;
-				font-size: 1rem;
-				color: $text-color;
-				background: rgba(245, 245, 245, 0.8);
-				resize: vertical;
-				box-sizing: border-box;
-
-				&:focus {
-					border-color: $primary-color;
-					box-shadow: 0 0 5px rgba($primary-color, 0.3);
-				}
-			}
-
-			textarea {
-				min-height: 150px;
-			}
-		}
-
-		.btn {
-			width: 100%;
-			min-width: unset;
-		}
-	}
-
-	@media screen and (min-width: 768px) {
-		.contact-form {
-			max-width: 600px;
 		}
 	}
 }

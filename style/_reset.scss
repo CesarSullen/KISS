@@ -11,7 +11,7 @@
 }
 
 // Variables
-$primary-color: #19150f;
+$primary-color: #c88c8c;
 $secondary-color: #c8c5ba;
 $text-color: #333;
 $border-radius-general: 8px;
@@ -70,15 +70,14 @@ a {
 .btn {
 	padding: 0.5rem 1.6rem;
 	border-radius: $border-radius-general;
-	border: solid 2px $primary-color;
-	background: $primary-color;
+	border: solid 2px $secondary-color;
+	background: $secondary-color;
 	font-size: 1rem;
 	cursor: pointer;
 	width: 100%;
 	min-width: 200px;
 	letter-spacing: 2px;
 	text-transform: uppercase;
-	color: $secondary-color;
 	text-align: center;
 	font-weight: 600;
 	position: relative;
@@ -115,13 +114,13 @@ a {
 
 .ghost-btn {
 	background: transparent;
-	border: solid 2px $primary-color;
-	color: $primary-color;
+	border: solid 2px $secondary-color;
+	color: $secondary-color;
 	transition: all 0.3s ease;
 
 	&:hover {
-		background: $primary-color;
-		color: $secondary-color;
+		background: $secondary-color;
+		color: $text-color;
 		box-shadow: 0 4px 12px rgba($primary-color, 0.3);
 		transform: translateY(-2px);
 	}
@@ -169,11 +168,22 @@ section {
 
 	&:hover {
 		transform: translateY(-5px);
-		box-shadow: 0 4px 20px rgba($primary-color, 0.8);
+		box-shadow: 0 4px 20px rgba($primary-color, 0.5);
 	}
 
 	&:hover::before,
 	&:hover::after {
 		opacity: 1;
+	}
+}
+
+.section-title {
+	color: $text-color;
+	text-transform: uppercase;
+	font-size: 2.5rem;
+
+	&::after {
+		content: url(../assets/styled-underline.png);
+		display: block;
 	}
 }
