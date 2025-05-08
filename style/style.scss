@@ -159,10 +159,9 @@
 			background-size: cover;
 			background-position: center;
 			background-repeat: no-repeat;
-			border-radius: $border-radius-rounded;
+			border-radius: $border-radius-general;
 			overflow: hidden;
 			text-decoration: none;
-			border: solid 1px $primary-color;
 			scroll-snap-align: start;
 
 			&:hover {
@@ -175,20 +174,25 @@
 				justify-content: center;
 				align-items: center;
 				border: none;
-				animation: pulse 3s infinite ease-in-out;
 
 				.carousel-title {
-					font-size: 1.4rem;
+					font-size: 3.5rem;
+					text-wrap: wrap;
+					line-height: 0.9;
 					color: $text-color;
 					text-transform: uppercase;
 					padding: 0.5rem;
 					margin-bottom: 1rem;
 					text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+					position: relative;
 				}
 
 				&::after {
+					animation: pulse 3s infinite ease-in-out;
 					content: url(../assets/caret-circle-double-right.svg);
-					scale: 2;
+					position: absolute;
+					right: 4rem;
+					scale: 1.7;
 					transition: transform 0.3s ease;
 				}
 
@@ -328,6 +332,7 @@
 	display: grid;
 	grid-template-columns: repeat(1, 1fr);
 	gap: 30px;
+	padding: 1rem;
 
 	@media screen and (min-width: 768px) {
 		grid-template-columns: repeat(3, 1fr);
@@ -380,6 +385,8 @@
 			width: 100%;
 			box-sizing: border-box;
 			color: $text-color;
+			box-shadow: none;
+			border: none;
 
 			.card-content {
 				text-align: left;
@@ -432,7 +439,7 @@
 // Footer
 .footer {
 	background: $primary-color;
-	color: white;
+	color: whitesmoke;
 	padding: 20px;
 	text-align: center;
 	padding-block: 20vh;

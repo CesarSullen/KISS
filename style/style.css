@@ -179,6 +179,10 @@ section h2 {
   display: block;
 }
 
+section {
+  margin-bottom: 2rem;
+}
+
 .show-up-blur {
   animation: showUpBlurAnimation 1.5s forwards;
 }
@@ -215,7 +219,7 @@ section h2 {
     transform: scale(1);
   }
   50% {
-    transform: scale(1.07);
+    transform: scale(1.2);
   }
   100% {
     transform: scale(1);
@@ -532,10 +536,9 @@ section h2 {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  border-radius: 12px;
+  border-radius: 8px;
   overflow: hidden;
   text-decoration: none;
-  border: solid 1px #c88c8c;
   scroll-snap-align: start;
 }
 .products .products-carousel .carousel-card:hover {
@@ -547,19 +550,24 @@ section h2 {
   justify-content: center;
   align-items: center;
   border: none;
-  animation: pulse 3s infinite ease-in-out;
 }
 .products .products-carousel .carousel-card:first-child .carousel-title {
-  font-size: 1.4rem;
+  font-size: 3.5rem;
+  text-wrap: wrap;
+  line-height: 0.9;
   color: #333;
   text-transform: uppercase;
   padding: 0.5rem;
   margin-bottom: 1rem;
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  position: relative;
 }
 .products .products-carousel .carousel-card:first-child::after {
+  animation: pulse 3s infinite ease-in-out;
   content: url(../assets/caret-circle-double-right.svg);
-  scale: 2;
+  position: absolute;
+  right: 4rem;
+  scale: 1.7;
   transition: transform 0.3s ease;
 }
 .products .products-carousel .carousel-card:first-child:hover::after {
@@ -683,6 +691,7 @@ section h2 {
   display: grid;
   grid-template-columns: repeat(1, 1fr);
   gap: 30px;
+  padding: 1rem;
 }
 @media screen and (min-width: 768px) {
   .why-us-container {
@@ -736,6 +745,8 @@ section h2 {
   width: 100%;
   box-sizing: border-box;
   color: #333;
+  box-shadow: none;
+  border: none;
 }
 .location-hours .location-hours-container .location-card .card-content,
 .location-hours .location-hours-container .hours-card .card-content {
@@ -783,7 +794,7 @@ section h2 {
 
 .footer {
   background: #c88c8c;
-  color: white;
+  color: whitesmoke;
   padding: 20px;
   text-align: center;
   padding-block: 20vh;
