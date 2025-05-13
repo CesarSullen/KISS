@@ -138,7 +138,9 @@
 .products {
 	width: 100%;
 	overflow: hidden;
-
+	.styled-underline {
+		padding: 1rem;
+	}
 	.products-carousel {
 		display: flex;
 		overflow-x: auto;

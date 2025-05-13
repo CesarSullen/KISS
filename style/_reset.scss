@@ -194,9 +194,12 @@ section {
 	font-size: 2.5rem;
 	font-family: "DMSerifDisplay";
 	letter-spacing: 2px;
-	&::after {
-		content: url(../assets/styled-underline.svg);
+	width: 100%;
+
+	.styled-underline {
 		display: block;
+		width: 100%;
+		margin: auto;
 	}
 }
 

@@ -188,10 +188,12 @@ section h2 {
   font-size: 2.5rem;
   font-family: "DMSerifDisplay";
   letter-spacing: 2px;
+  width: 100%;
 }
-.section-title::after {
-  content: url(../assets/styled-underline.svg);
+.section-title .styled-underline {
   display: block;
+  width: 100%;
+  margin: auto;
 }
 
 section {
@@ -532,6 +534,9 @@ section {
 .products {
   width: 100%;
   overflow: hidden;
+}
+.products .styled-underline {
+  padding: 1rem;
 }
 .products .products-carousel {
   display: flex;
